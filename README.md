@@ -1,10 +1,10 @@
 ## Setting up project
 
-curl -s "https://laravel.build/hdfc-tracker-app" | bash
-./vendor/bin/sail up -d
-./vendor/bin/sail artisan migrate
-./vendor/bin/sail down
-./vendor/bin/sail npm run dev
+- curl -s "https://laravel.build/hdfc-tracker-app" | bash
+- ./vendor/bin/sail up -d
+- ./vendor/bin/sail artisan migrate
+- ./vendor/bin/sail down
+- ./vendor/bin/sail npm run dev
 
 ## Technologies used
 - Laravel
@@ -13,6 +13,9 @@ curl -s "https://laravel.build/hdfc-tracker-app" | bash
 - Reactjs
 - PrimeReact
 - Tailwind CSS
+
+## Database Structure
+![Database Structure](https://github.com/javaa/hdfc-tracker-app/blob/main/database-diagram-svg.svg)
 
 
 
