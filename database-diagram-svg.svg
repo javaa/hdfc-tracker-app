@@ -37,24 +37,35 @@
     <text x="560" y="170" font-family="Arial" font-size="12">geoLocation: json</text>
     <text x="560" y="190" font-family="Arial" font-size="12">created_at: timestamp</text>
 
-    <!-- Relationships -->
-    <!-- Projects to Milestones -->
-    <path d="M 250 120 L 300 120" stroke="#666666" stroke-width="2" marker-end="url(#arrowhead)"/>
-    <!-- Milestones to Images -->
-    <path d="M 500 120 L 550 120" stroke="#666666" stroke-width="2" marker-end="url(#arrowhead)"/>
-
-    <!-- Arrow Marker Definition -->
-    <defs>
-        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-            <polygon points="0 0, 10 3.5, 0 7" fill="#666666"/>
-        </marker>
-    </defs>
+    <!-- Relationships with Crow's Foot Notation -->
+    <!-- Projects to Milestones (1:M) -->
+    <path d="M 250 120 L 280 120" stroke="#666666" stroke-width="2"/>
+    <path d="M 280 115 L 280 125 M 280 120 L 300 120" stroke="#666666" stroke-width="2"/>
+    <!-- Single line (1) indicator -->
+    <path d="M 245 115 L 245 125" stroke="#666666" stroke-width="2"/>
+    <!-- Crow's foot (Many) -->
+    <path d="M 290 115 L 300 120 L 290 125" stroke="#666666" stroke-width="2" fill="none"/>
+    
+    <!-- Milestones to Images (1:M) -->
+    <path d="M 500 120 L 530 120" stroke="#666666" stroke-width="2"/>
+    <path d="M 530 115 L 530 125 M 530 120 L 550 120" stroke="#666666" stroke-width="2"/>
+    <!-- Single line (1) indicator -->
+    <path d="M 495 115 L 495 125" stroke="#666666" stroke-width="2"/>
+    <!-- Crow's foot (Many) -->
+    <path d="M 540 115 L 550 120 L 540 125" stroke="#666666" stroke-width="2" fill="none"/>
 
     <!-- Legend -->
-    <rect x="50" y="350" width="150" height="100" fill="#ffffff" stroke="#666666" stroke-width="1"/>
+    <rect x="50" y="350" width="250" height="150" fill="#ffffff" stroke="#666666" stroke-width="1"/>
     <text x="60" y="370" font-family="Arial" font-size="12" font-weight="bold">Legend:</text>
     <text x="60" y="390" font-family="Arial" font-size="12">PK - Primary Key</text>
     <text x="60" y="410" font-family="Arial" font-size="12">FK - Foreign Key</text>
-    <path d="M 60 430 L 100 430" stroke="#666666" stroke-width="2" marker-end="url(#arrowhead)"/>
-    <text x="110" y="435" font-family="Arial" font-size="12">Relationship</text>
+    
+    <!-- Relationship Legend -->
+    <text x="60" y="440" font-family="Arial" font-size="12">Relationships:</text>
+    <!-- One side symbol -->
+    <path d="M 60 460 L 90 460" stroke="#666666" stroke-width="2"/>
+    <path d="M 55 455 L 55 465" stroke="#666666" stroke-width="2"/>
+    <!-- Many side symbol -->
+    <path d="M 80 455 L 90 460 L 80 465" stroke="#666666" stroke-width="2" fill="none"/>
+    <text x="100" y="465" font-family="Arial" font-size="12">One-to-Many (1:M)</text>
 </svg>
