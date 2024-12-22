@@ -1,0 +1,62 @@
+version: '3'
+services:
+    app:
+        build:
+            args:
+                user: jawad
+                uid: 1000
+            context: ./
+            dockerfile: Dockerfile
+        image: tracker-app
+        container_name: tracker-app
+        restart: unless-stopped
+        volumes:
+            - ".:/var/www/html"
+        networks:
+            - sail
+        depends_on:
+            - mysql
+
+    mysql:
+        image: "mysql:8.0"
+        container_name: tracker-mysql
+        restart: unless-stopped
+        ports:
+            - "${FORWARD_DB_PORT:-3310}:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: "${DB_PASSWORD}"
+            MYSQL_DATABASE: "${DB_DATABASE}"
+            MYSQL_USER: "${DB_USERNAME}"
+            MYSQL_PASSWORD: "${DB_PASSWORD}"
+            SERVICE_TAGS: dev
+            SERVICE_NAME: mysql
+        volumes:
+            - "sail-mysql:/var/lib/mysql"
+            - "./vendor/laravel/sail/database/mysql/create-testing-database.sh:/docker-entrypoint-initdb.d/10-create-testing-database.sh"
+        networks:
+            - sail
+        healthcheck:
+            test: ["CMD", "mysqladmin", "ping", "-p${MYSQL_ROOT_PASSWORD}"]
+            retries: 3
+            timeout: 5s
+
+    nginx:
+        image: nginx:alpine
+        container_name: tracker-nginx
+        restart: unless-stopped
+        ports:
+            - 9004:80
+        volumes:
+            - ./:/var/www/html
+            - ./docker-compose/nginx:/etc/nginx/conf.d/
+        networks:
+            - sail
+
+networks:
+    sail:
+        driver: bridge
+volumes:
+    sail-mysql:
+        driver: local
+    sail-redis:
+        driver: local

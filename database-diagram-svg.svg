@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+    <!-- Background -->
+    <rect width="800" height="600" fill="#ffffff"/>
+
+    <!-- Projects Table -->
+    <rect x="50" y="50" width="200" height="180" fill="#e3f2fd" stroke="#1565c0" stroke-width="2"/>
+    <text x="150" y="80" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">projects</text>
+    <line x1="50" y1="90" x2="250" y2="90" stroke="#1565c0" stroke-width="2"/>
+    <text x="60" y="110" font-family="Arial" font-size="12">PK id: int</text>
+    <text x="60" y="130" font-family="Arial" font-size="12">projectTitle: varchar(255)</text>
+    <text x="60" y="150" font-family="Arial" font-size="12">projectCreator: varchar(255)</text>
+    <text x="60" y="170" font-family="Arial" font-size="12">slug: varchar(255)</text>
+    <text x="60" y="190" font-family="Arial" font-size="12">created_at: timestamp</text>
+    <text x="60" y="210" font-family="Arial" font-size="12">updated_at: timestamp</text>
+
+    <!-- Project Milestones Table -->
+    <rect x="300" y="50" width="200" height="240" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2"/>
+    <text x="400" y="80" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">project_mile_stones</text>
+    <line x1="300" y1="90" x2="500" y2="90" stroke="#2e7d32" stroke-width="2"/>
+    <text x="310" y="110" font-family="Arial" font-size="12">PK id: int</text>
+    <text x="310" y="130" font-family="Arial" font-size="12">FK projectId: int</text>
+    <text x="310" y="150" font-family="Arial" font-size="12">milestoneTitle: varchar(255)</text>
+    <text x="310" y="170" font-family="Arial" font-size="12">estimateStartDate: date</text>
+    <text x="310" y="190" font-family="Arial" font-size="12">estimateEndDate: date</text>
+    <text x="310" y="210" font-family="Arial" font-size="12">actualStartDate: date</text>
+    <text x="310" y="230" font-family="Arial" font-size="12">actualEndDate: date</text>
+    <text x="310" y="250" font-family="Arial" font-size="12">status: varchar(255)</text>
+    <text x="310" y="270" font-family="Arial" font-size="12">order: int</text>
+
+    <!-- Milestone Images Table -->
+    <rect x="550" y="50" width="200" height="160" fill="#fce4ec" stroke="#c2185b" stroke-width="2"/>
+    <text x="650" y="80" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">mile_stone_images</text>
+    <line x1="550" y1="90" x2="750" y2="90" stroke="#c2185b" stroke-width="2"/>
+    <text x="560" y="110" font-family="Arial" font-size="12">PK id: int</text>
+    <text x="560" y="130" font-family="Arial" font-size="12">FK projectMileStoneId: int</text>
+    <text x="560" y="150" font-family="Arial" font-size="12">image: varchar(255)</text>
+    <text x="560" y="170" font-family="Arial" font-size="12">geoLocation: json</text>
+    <text x="560" y="190" font-family="Arial" font-size="12">created_at: timestamp</text>
+
+    <!-- Relationships -->
+    <!-- Projects to Milestones -->
+    <path d="M 250 120 L 300 120" stroke="#666666" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <!-- Milestones to Images -->
+    <path d="M 500 120 L 550 120" stroke="#666666" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+    <!-- Arrow Marker Definition -->
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#666666"/>
+        </marker>
+    </defs>
+
+    <!-- Legend -->
+    <rect x="50" y="350" width="150" height="100" fill="#ffffff" stroke="#666666" stroke-width="1"/>
+    <text x="60" y="370" font-family="Arial" font-size="12" font-weight="bold">Legend:</text>
+    <text x="60" y="390" font-family="Arial" font-size="12">PK - Primary Key</text>
+    <text x="60" y="410" font-family="Arial" font-size="12">FK - Foreign Key</text>
+    <path d="M 60 430 L 100 430" stroke="#666666" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="110" y="435" font-family="Arial" font-size="12">Relationship</text>
+</svg>
