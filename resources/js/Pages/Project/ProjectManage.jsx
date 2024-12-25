@@ -10,6 +10,7 @@ import AddProject from '../../Components/Project/AddProject';
 import ProjectTimeline from '../../Components/Project/ProjectTimeLine';
 import PTimeline from '../../Components/Project/PTimeLine';
 import Pagination from '../../Components/Pagination';
+import SearchFilter from '../../Components/SearchFilter';
 
 export default function ProjectManage({ projects }) {
   const { auth } = usePage().props;
@@ -27,6 +28,9 @@ export default function ProjectManage({ projects }) {
         <div className='flex justify-between'>
           <h1 className="text-3xl font-bold mb-6">Manage Projects</h1>
           <Button label='Add Project' onClick={() => setOpen(true)} icon="pi pi-plus text-sm" />
+        </div>
+        <div className='w-full md:w-2/5'>
+          <SearchFilter />
         </div>
         <div className='mt-5'>
           <DataTable showGridlines className='custom-datatable mt-6' value={projects.data} size="small" breakpoint="960px" emptyMessage="No Projects found.">
